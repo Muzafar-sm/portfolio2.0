@@ -14,7 +14,7 @@ export const GENERAL_INFO = {
 export const SOCIAL_LINKS = [
     { name: 'github', url: 'https://github.com/Muzafar-sm' },
     { name: 'linkedin', url: 'https://www.linkedin.com/in/mohammad-muzafar-707a61205/' },
-    { name: 'facebook', url: 'https://www.facebook.com/tajmirul.2000' },
+    { name: 'instagram', url: 'https://www.instagram.com/yeah_its_muzu/' },
     { name: 'Old Version', url: GENERAL_INFO.oldPortfolio },
     {name: 'Other', url: GENERAL_INFO.otherProfile},
 ];
