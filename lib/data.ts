@@ -7,7 +7,7 @@ export const GENERAL_INFO = {
     emailBody: 'Hi Tajmirul, I am reaching out to you because...',
 
     oldPortfolio: 'https://muzafar-portfolio-eight.vercel.app/',
-    upworkProfile: 'https://www.upwork.com/freelancers/tajmirul',
+    upworkProfile: 'https://www.linkedin.com/in/mohammad-muzafar-707a61205/',
     otherProfile: 'https://muzafarsm.netlify.app/',
 };
 
