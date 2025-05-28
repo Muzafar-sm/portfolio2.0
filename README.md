@@ -12,9 +12,7 @@ Please also note that I did not build this site with the intention of it being a
 
 If you like my work, give it a star⭐.
 
-### TL;DR
 
-Yes, you can fork this repo. Please give me proper credit by linking back to [me.toinfinite.dev](https://www.me.toinfinite.dev/). Thanks!
 
 ## 🛠 Installation & Set Up
 
@@ -31,7 +29,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 If you'd like to contribute or suggest improvements, feel free to open an issue or submit a pull request. All contributions are welcome!
 
 ## Credit
-_This project is inspired from [Tajmirul's Portfolio](https://github.com/Tajmirul/portfolio-2.0)_
+_This project is inspired from [Tajmirul's Portfolio](https://github.com/Tajmirul/portfolio-2.0)_  [me.toinfinite.dev](https://www.me.toinfinite.dev/). Thanks!
 
 ## 📄 License
 This project is open source and available under the [MIT License](https://github.com/Tajmirul/portfolio-2.0/blob/main/LICENSE).
