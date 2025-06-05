@@ -19,6 +19,7 @@ export interface IProject {
     title: string;
     year: number;
     description: string;
+    video?: string;
     role: string;
     techStack: string[];
     thumbnail: string;

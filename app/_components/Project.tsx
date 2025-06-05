@@ -108,6 +108,17 @@ const Project = ({ index, project, selectedProject, onMouseEnter }: Props) => {
             onMouseLeave={handleMouseLeave}
         >
             {selectedProject === null && (
+                project.video ? (
+                    <video
+                        src={project.video}
+                        controls
+                        preload="metadata"
+                        className={cn('w-full mb-6 aspect-[3/2] rounded-xl')}
+                        muted
+                        loop
+                        playsInline
+                    />
+                ) : (
                 <Image
                     src={project.thumbnail}
                     alt="Project"
@@ -119,6 +130,7 @@ const Project = ({ index, project, selectedProject, onMouseEnter }: Props) => {
                     key={project.slug}
                     loading="lazy"
                 />
+                )
             )}
             <div className="flex gap-2 md:gap-5">
                 <div className="font-anton text-muted-foreground">

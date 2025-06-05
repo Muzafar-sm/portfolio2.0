@@ -131,6 +131,66 @@ export const MY_STACK = {
 
 export const PROJECTS: IProject[] = [
     {
+        title: 'CivicLens',
+        slug: 'civiclens',
+        video: '/projects/civic-video.mp4',
+        liveUrl: 'https://civiclens-kct2ujqhh-trons-projects-6218f3d8.vercel.app/', // Backend hosting expired, so no live URL for now
+        year: 2025,
+        description: `
+          CivicLens is an AI-powered platform that processes government PDFs to extract and summarize key information, making complex documents easy to understand.
+          <br/><br/>
+          ⚠️ **Note:** The backend is currently inactive due to the expiration of the free hosting trial. To test the complete functionality, clone the repository and run it locally by following the setup instructions below.<br /><br/>
+          <b>Refer the video below for a quick demo of the project.</b><br /><br/>
+          
+          Key Features:<br/>
+          <ul>
+            <li>🤖 AI-driven document parsing using HuggingFace NLP models</li>
+            <li>📄 Upload and analyze government PDFs efficiently</li>
+            <li>⚡ Fast frontend UI built with React for smooth user experience</li>
+            <li>🔗 Backend API powered by FastAPI to handle AI inference requests</li>
+            <li>🛠️ Modular code structure for easy maintenance and updates</li>
+          </ul><br/>
+          
+          Technical Highlights:<br/>
+          <ul>
+            <li>React.js frontend with environment variables for HuggingFace API integration</li>
+            <li>FastAPI backend serving AI-powered endpoints (requires local deployment)</li>
+            <li>REST API communication between frontend and backend</li>
+            <li>Use of HuggingFace API for advanced NLP tasks</li>
+          </ul>
+        `,
+        role: `
+          Full-Stack Developer <br/>
+          Responsible for:<br/>
+          <ul>
+            <li>⚙️ Building the React frontend and integrating HuggingFace API calls</li>
+            <li>🔧 Developing FastAPI backend endpoints to support AI model inference</li>
+            <li>📦 Managing API keys securely with environment variables</li>
+            <li>📁 Structuring the project for scalability and easy collaboration</li>
+            <li>🎥 Documenting project functionality through demo videos due to hosting limits</li>
+          </ul>
+        `,
+        techStack: [
+          'React.js',
+          'FastAPI',
+          'HuggingFace API',
+          'REST API',
+          'JavaScript',
+          'Python',
+          'Next',
+        ],
+        thumbnail: '/projects/long/civic-thumbnail.png',
+        longThumbnail: '/projects/images/civic-thumbnail.png',
+        images: [
+          '/projects/images/civic-1.png',
+          '/projects/images/civic-2.png',
+          '/projects/images/civic-3.png',
+          '/projects/images/civic-4.png',
+          '/projects/images/civic-5.png',
+          '/projects/images/civic-6.png', 
+        ],
+      },      
+    {
         title: 'Expense Tracker',
         slug: 'expense-tracker',
         liveUrl: 'https://expense-tracker-kohl-one-59.vercel.app/',

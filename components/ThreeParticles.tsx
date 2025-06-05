@@ -15,7 +15,8 @@ interface ParticlesProps {
 
 const Particles = ({ mouse, scrollY, velocity }: ParticlesProps) => {
   const particlesRef = useRef<any>();
-  const count = 5000;
+  const isMobile = window.innerWidth <= 768;
+  const count = isMobile ? 2000 : 5000;
 
   const positionsArray = useMemo(() => {
     const arr = new Float32Array(count * 3);
@@ -23,17 +24,15 @@ const Particles = ({ mouse, scrollY, velocity }: ParticlesProps) => {
       arr[i] = (Math.random() - 0.5) * 2;
     }
     return arr;
-  }, []);
+  }, [count]);
 
   const positions = useRef<Float32Array>(positionsArray);
 
   useFrame(() => {
     if (particlesRef.current) {
-      // Subtle continuous rotation
       particlesRef.current.rotation.x -= 0.001;
       particlesRef.current.rotation.y -= 0.0015;
 
-      // Compute dynamic lerp factor from velocity
       const lerpFactor = THREE.MathUtils.clamp(velocity * 2, 0.01, 0.2);
 
       const targetX = mouse.x * 0.01;
@@ -58,7 +57,7 @@ const Particles = ({ mouse, scrollY, velocity }: ParticlesProps) => {
       <PointMaterial
         transparent
         color="#ffffff"
-        size={0.005}
+        size={isMobile ? 0.01 : 0.005}
         sizeAttenuation
         depthWrite={false}
       />
@@ -136,57 +135,49 @@ const SunRayMaterial = shaderMaterial(
     varying vec2 vUv;
     
     void main() {
-      // Radial gradient
       float dist = distance(vUv, vec2(0.5));
       float gradient = smoothstep(0.5, 0.0, dist);
-      
-      // Glow effect
-      float glow = 0.05 / dist;
-      
-      // Combine effects with animation
-      float alpha = gradient * glow * opacity;
-      
-      // Final color with pulsing effect
+      float glow = 0.05 / max(dist, 0.001);
+      float alpha = clamp(gradient * glow * opacity, 0.0, 1.0);
       vec3 finalColor = color * (0.8 + 0.2 * sin(time));
-      
       gl_FragColor = vec4(finalColor, alpha);
     }
-  `
+  `,
+  (material) => {
+    if(material) material.transparent = true;
+    if(material) material.blending = THREE.AdditiveBlending;
+    if(material) material.depthWrite = false;
+  }
 );
 
 extend({ SunRayMaterial });
 
 const LightRay = () => {
-    const groupRef = useRef<any>();
-    const materialRef = useRef<any>();
-  
-    useFrame((state) => {
-      if (groupRef.current) {
-        groupRef.current.rotation.z += 0.001;
-      }
-  
-      if (materialRef.current) {
-        const time = state.clock.getElapsedTime();
-        materialRef.current.time = time;
-  
-        // Pulse the opacity between 0.2 and 0.7
-        materialRef.current.opacity = 0.45 + 0.25 * Math.sin(time * 1.5);
-      }
-    });
-  
-    return (
-      <group ref={groupRef}>
-        <mesh position={[-1.5, 1.5, -1]}>
-          <planeGeometry args={[3, 3]} />
-          <primitive object={new SunRayMaterial()} ref={materialRef} transparent attach="material" />
-        </mesh>
-      </group>
-    );
-  };
-  
-  
+  const groupRef = useRef<any>();
+  const materialRef = useRef<any>();
 
-// Update the ShootingStar component to create multiple stars
+  useFrame((state) => {
+    if (groupRef.current) {
+      groupRef.current.rotation.z += 0.001; // Rotate group for circular orbit
+    }
+
+    if (materialRef.current) {
+      const time = state.clock.getElapsedTime();
+      materialRef.current.time = time;
+      materialRef.current.opacity = 0.7 + 0.3 * Math.sin(time * 1.5);
+    }
+  });
+
+  return (
+    <group ref={groupRef}>
+      <mesh position={[-1.5, 1.5, -1]}> {/* Offset to create orbiting effect */}
+        <planeGeometry args={[2, 2]} />
+        <primitive object={new SunRayMaterial()} ref={materialRef} transparent attach="material" />
+      </mesh>
+    </group>
+  );
+};
+
 const ShootingStars = () => {
   const stars = useMemo(() => {
     return Array(3).fill(0).map((_, i) => ({
@@ -249,7 +240,14 @@ export default function ThreeParticles() {
       zIndex: -1,
       overflow: 'hidden',
     }}>
-      <Canvas camera={{ position: [0, 0, 1] }}>
+      <Canvas
+        camera={{ position: [0, 0, 1] }}
+        gl={{ antialias: true, powerPreference: 'high-performance', failIfMajorPerformanceCaveat: true }}
+        onCreated={({ gl }) => {
+          gl.getContext().getExtension('WEBGL_debug_renderer_info');
+          console.log('WebGL Context:', gl.getContext());
+        }}
+      >
         <Particles mouse={mouse} scrollY={scrollY} velocity={mouseVelocityRef.current} />
         <ShootingStars />
         <LightRay />

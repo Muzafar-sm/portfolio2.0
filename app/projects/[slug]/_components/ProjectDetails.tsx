@@ -179,6 +179,19 @@ const ProjectDetails = ({ project }: Props) => {
                     className="fade-in-later relative flex flex-col gap-2 max-w-[800px] mx-auto"
                     id="images"
                 >
+                    {project.video && (
+  <div className="fade-in-later mb-12 max-w-[800px] mx-auto rounded-xl overflow-hidden">
+    <video
+      controls
+      preload="metadata"
+      className="w-full aspect-[3/2] rounded-xl shadow-lg"
+    >
+      <source src={project.video} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+)}
+
                     {project.images.map((image) => (
                         <div
                             key={image}
