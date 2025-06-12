@@ -42,7 +42,7 @@ const Banner = () => {
             >
                 <div className="max-md:grow max-md:flex flex-col justify-center items-start max-w-[544px]">
                     <h1 className="banner-title slide-up-and-fade leading-[.95] text-6xl sm:text-[80px] font-anton">
-                        <span className="text-primary">FRONTEND</span>
+                        <span className="text-primary">FULLSTACK & AI</span>
                         <br /> <span className="ml-4">DEVELOPER</span>
                     </h1>
                     <p className="banner-description slide-up-and-fade mt-6 text-lg text-muted-foreground">
@@ -52,7 +52,9 @@ const Banner = () => {
                         </span>
                         . A creative Frontend Developer with 1+ years of
                         experience in building high-performance, scalable, and
-                        responsive web solutions.
+                        responsive web solutions.Skilled in Full-Stack development and crafting intelligent 
+                        applications using modern AI tools and APIs.
+
                     </p>
                     <Button
                         as="link"

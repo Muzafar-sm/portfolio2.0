@@ -4,7 +4,7 @@ export const GENERAL_INFO = {
     email: 'mohammadmuzafar342@gmail.com',
 
     emailSubject: "Let's collaborate on a project",
-    emailBody: 'Hi Tajmirul, I am reaching out to you because...',
+    emailBody: 'Hi Muzafar, I am reaching out to you because...',
 
     oldPortfolio: 'https://muzafar-portfolio-eight.vercel.app/',
     upworkProfile: 'https://www.linkedin.com/in/mohammad-muzafar-707a61205/',
@@ -130,6 +130,60 @@ export const MY_STACK = {
 };
 
 export const PROJECTS: IProject[] = [
+    {
+  title: 'Safeguard AI – Drone Surveillance',
+  slug: 'safeguard-ai-drone-surveillance',
+  liveUrl: 'https://drone-surveillance.vercel.app/',
+  year: 2025,
+  description: `
+    Developed SkyGuard, a browser-based real-time drone surveillance dashboard using Hugging Face computer vision models (object detection, image classification, video classification) and 3D visualization (text-to-3D, image-to-3D).<br/><br/>
+
+    Key Features:<br/>
+    <ul>
+      <li>🎥 Real-time video streaming and analysis</li>
+      <li>🤖 AI-powered object and event detection</li>
+      <li>📊 Interactive analytics dashboard</li>
+      <li>🗺️ Map visualization and tracking</li>
+      <li>⚙️ Advanced drone settings and configuration</li>
+    </ul><br/>
+
+    Technical Highlights:
+    <ul>
+      <li>Integrated Hugging Face Inference API for semantic document analysis</li>
+      <li>Used React hooks for dynamic UI interactions and data flow</li>
+      <li>Backend built with FastAPI for lightweight API handling</li>
+      <li>Model recognising threshold 85%</li>
+      <li>Clean separation of components and services for scalability</li>
+    </ul>
+  `,
+  role: `
+    Full-Stack Developer <br/>
+    Led end-to-end development of the AI-enabled system:
+    <ul>
+      <li>🚀 Backend: Developed FastAPI endpoints to interface with Hugging Face models</li>
+      <li>💻 Frontend: Built the entire UI in React with modular, responsive components</li>
+      <li>🔐 API Integration: Handled model requests securely and efficiently</li>
+      <li>📦 Deployment: Hosted the entire app on Vercel for seamless access</li>
+    </ul>
+  `,
+  techStack: [
+    'React.js',
+    'FastAPI',
+    'Hugging Face Transformers',
+    'Vercel',
+    'TypeScript',
+    'Python',
+    'REST API'
+  ],
+  thumbnail: '/projects/long/drone.png',
+  longThumbnail: '/projects/images/drone.png',
+  images: [
+    '/projects/images/drone-4.png',
+    '/projects/images/drone-2.png',
+    '/projects/images/drone-3.png',
+    '/projects/images/drone-1.png',
+  ],
+},
     {
         title: 'CivicLens',
         slug: 'civiclens',
