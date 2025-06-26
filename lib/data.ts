@@ -59,7 +59,7 @@ export const MY_STACK = {
         },
         {
             name: 'Three.js',
-            icon: '/logo/three.js.png',
+            icon: '/logo/Three.js.png',
         },
         
         {
